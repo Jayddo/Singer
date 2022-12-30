@@ -75,18 +75,20 @@
         <troubadour>true</troubadour>
     </global>
     <nuvola>
-        <actions>false</actions>
         <aoe>
-            <p1>false</p1>
             <p2>true</p2>
-            <p3>false</p3>
+            <p4>true</p4>
         </aoe>
         <box>
             <pos>
                 <x>1102</x>
-                <y>81</y>
+                <y>82</y>
             </pos>
+            <text>
+                <fonts>
+
+                </fonts>
+            </text>
         </box>
-        <pianissimo>true</pianissimo>
     </nuvola>
 </settings>
