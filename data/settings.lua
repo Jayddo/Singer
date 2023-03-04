@@ -8,14 +8,15 @@ return {
         ["minne"] = L{"Knight's Minne V","Honor March","Blade Madrigal",},
         ["clear"] = L{},
         ["melee"] = L{"Honor March","Blade Madrigal","Valor Minuet V",},
+        ["ballad"] = L{"Mage's Ballad II","Mage's Ballad III","Knight's Minne V",},
     },
     ["buffs"] = T{
-        ["refresh"] = L{},
         ["haste"] = L{},
+        ["refresh"] = L{},
         ["aurorastorm"] = L{},
         ["firestorm"] = L{},
     },
     ["song"] = T{
     },
-    ["songs"] = L{"Knight's Minne V","Honor March","Blade Madrigal",},
+    ["songs"] = L{"Mage's Ballad II","Mage's Ballad III","Knight's Minne V",},
 }

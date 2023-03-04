@@ -75,14 +75,16 @@
         <troubadour>true</troubadour>
     </global>
     <nuvola>
+        <actions>false</actions>
+        <active>false</active>
         <aoe>
             <p2>true</p2>
             <p4>true</p4>
         </aoe>
         <box>
             <pos>
-                <x>1102</x>
-                <y>82</y>
+                <x>1103</x>
+                <y>83</y>
             </pos>
             <text>
                 <fonts>
