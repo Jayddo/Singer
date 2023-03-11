@@ -84,14 +84,24 @@ local equip_mods = {
     [26033] = {0.3},            -- 'Mnbw. Whistle +1',
     [26758] = {Madrigal=0.1},   -- 'Fili Calot',
     [26759] = {Madrigal=0.1},   -- 'Fili Calot +1',
+    [23094] = {Madrigal=0.1},   -- 'Fili Calot +2',
+    [23429] = {Madrigal=0.1},   -- 'Fili Calot +3',
     [26916] = {0.11,Minuet=0.1},-- 'Fili Hongreline',
     [26917] = {0.12,Minuet=0.1},-- 'Fili Hongreline +1',
+    [23161] = {0.13,Minuet=0.1},-- 'Fili Hongreline +2',
+    [23496] = {0.14,Minuet=0.1},-- 'Fili Hongreline +3',
     [27070] = {March=0.1},      -- 'Fili Manchettes',
     [27071] = {March=0.1},      -- 'Fili Manchettes +1',
+    [23228] = {March=0.1},      -- 'Fili Manchettes +2',
+    [23563] = {March=0.1},      -- 'Fili Manchettes +3',
     [27255] = {Ballad=0.1},     -- 'Fili Rhingrave',
     [27256] = {Ballad=0.1},     -- 'Fili Rhingrave +1',
+    [23295] = {Ballad=0.1},     -- 'Fili Rhingrave +2',
+    [23630] = {Ballad=0.1},     -- 'Fili Rhingrave +3',
     [27429] = {Scherzo=0.1},    -- 'Fili Cothurnes',
     [27430] = {Scherzo=0.1},    -- 'Fili Cothurnes +1',
+    [23362] = {Scherzo=0.1},    -- 'Fili Cothurnes +2',
+    [23697] = {Scherzo=0.1},    -- 'Fili Cothurnes +3',
     [26255] = {Madrigal=0.1,Prelude=0.1}, -- 'Intarabus\'s Cape',
     [25561] = {Etude=0.1},      -- 'Mousai Turban',
     [25562] = {Etude=0.2},      -- 'Mousai Turban +1',
@@ -139,11 +149,7 @@ function song_timers.duration(song_name, buffs)
             end
         end
     end
-    --[[
-    if buff_name then
-        song_multipliers[buff_name] = mult
-    end
-    ]]
+
     return song_timers.calc_dur(song_name, buffs, mult)
 end
 
@@ -151,7 +157,7 @@ function song_timers.buff_lost(targ_id,buff_id)
     local buff = get.songs[song_buffs[buff_id]]
 
     if buff then
-        local targ = windower.ffxi.get_mob_by_id(targ_id)
+        local targ = windower.ffxi.get_mob_by_id(targ_id).name
         if not targ then return end
         if not timers[targ] then return end
 
@@ -165,7 +171,7 @@ function song_timers.buff_lost(targ_id,buff_id)
         end
 
         if not song then return end
-        if not settings.song[targ] then song_timers.delete(song,'AoE') end
+        --if not setting.song[targ] then song_timers.delete(song,'AoE') end
         song_timers.delete(song,targ)
         return
     end
@@ -211,7 +217,7 @@ function song_timers.adjust(spell_name,targ,buffs)
         if timers[targ][spell_name].ts < (current_time + dur) then
             song_timers.create(spell_name,targ,dur,current_time,buffs)
         end
-    elseif table.length(timers[targ]) < get.maxsongs(targ,buffs) then
+    elseif table.length(timers[targ]) < get.maxsongs(targ,buffs) and not check_dummy(targ) then
         song_timers.create(spell_name,targ,dur,current_time,buffs)
     else
         local rep,repsong
@@ -225,7 +231,17 @@ function song_timers.adjust(spell_name,targ,buffs)
             song_timers.delete(repsong,targ)
             song_timers.create(spell_name,targ,dur,current_time,buffs)
         end
-    end
+	end
+end
+
+function check_dummy(targ)
+	local count = false
+	for k,v in pairs (timers[targ]) do
+		if setting.dummy[k] then
+			return true
+		end
+	end
+	return false
 end
 
 function song_timers.reset(bool)
