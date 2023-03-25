@@ -76,15 +76,14 @@
     </global>
     <nuvola>
         <actions>false</actions>
-        <active>false</active>
         <aoe>
-            <p2>true</p2>
+            <p1>false</p1>
             <p4>true</p4>
         </aoe>
         <box>
             <pos>
                 <x>1103</x>
-                <y>83</y>
+                <y>85</y>
             </pos>
             <text>
                 <fonts>
