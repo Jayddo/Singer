@@ -83,13 +83,8 @@
         <box>
             <pos>
                 <x>1090</x>
-                <y>89</y>
+                <y>90</y>
             </pos>
-            <text>
-                <fonts>
-
-                </fonts>
-            </text>
         </box>
         <debuffing>true</debuffing>
         <pianissimo>true</pianissimo>
