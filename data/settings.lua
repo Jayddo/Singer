@@ -6,6 +6,7 @@ return {
     ["playlist"] = T{
         ["volte"] = L{"Adventurer's Dirge","Honor March","Blade Madrigal","Sword Madrigal","Valor Minuet V",},
         ["w3"] = L{"Adventurer's Dirge","Blade Madrigal","Honor March","Sword Madrigal","Valor Minuet V",},
+        ["xevfarm"] = L{"Valor Minuet V","Blade Madrigal","Wind Carol II","Honor March","Honor March",},
         ["arewar"] = L{"Valor Minuet II","Valor Minuet IV","Valor Minuet V","Honor March","Valor Minuet III",},
         ["sv5"] = L{"Valor Minuet III","Valor Minuet IV","Valor Minuet V","Honor March","Valor Minuet II",},
         ["mboze2"] = L{"Knight's Minne IV","Knight's Minne V","Mage's Ballad II","Victory March","Mage's Ballad III",},
@@ -47,5 +48,5 @@ return {
     ["buffs"] = T{
     },
     ["clarion"] = L{"Valor Minuet IV",},
-    ["songs"] = L{"Victory March","Honor March","Blade Madrigal","Valor Minuet V",},
+    ["songs"] = L{"Valor Minuet IV","Valor Minuet V","Knight's Minne V","Honor March","Blade Madrigal",},
 }
